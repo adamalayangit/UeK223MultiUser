@@ -17,13 +17,21 @@ public class Entry {
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @Column(nullable = false)
+    @Column/*(nullable = false)*/
     private LocalDateTime checkIn;
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @Column(nullable = false)
+    @Column/*(nullable = false)*/
     private LocalDateTime checkOut;
+
+    @ManyToOne
+    @JoinColumn/*(nullable = false)*/
+    private ApplicationUser applicationUser;
+
+    @ManyToOne
+    @JoinColumn/*(nullable = false)*/
+    private Category category;
 
     public Long getId() {
         return id;
@@ -47,5 +55,21 @@ public class Entry {
 
     public void setCheckOut(LocalDateTime checkOut) {
         this.checkOut = checkOut;
+    }
+
+    public ApplicationUser getApplicationUser() {
+        return applicationUser;
+    }
+
+    public void setApplicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

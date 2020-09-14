@@ -11,3 +11,8 @@ Folgende Schritte befolgen um loszulegen:
 Folgende Dienste stehen während der Ausführung im Profil `dev` zur Verfügung:
 - REST-Schnittstelle der Applikation: http://localhost:8081
 - Dashboard der H2 Datenbank: http://localhost:8081/h2-console
+
+Was tut die Applikation und wie man sie starten kann:
+- Das ist eine ausgebaute Version der Punchclock-Applikation. 
+    Darin kann man Users registrieren und anmelenden, Entries erstellen, verändern & löschen.
+- Um die Applikation zu starten muss man in der Konsole folgenden Command ein: '/gradlew bootRun'

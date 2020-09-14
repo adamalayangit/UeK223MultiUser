@@ -17,15 +17,31 @@ public class EntryController {
         this.entryService = entryService;
     }
 
+    // This endpoint lists all existing entries
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Entry> getAllEntries() {
         return entryService.findAll();
     }
 
+    // This endpoint creates a new entry after the 'Save-Button' is actuated
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Entry createEntry(@Valid @RequestBody Entry entry) {
         return entryService.createEntry(entry);
+    }
+
+    // This endpoint manipulates the changed values of the selected entry after the 'Save-Button' is actuated
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Entry updateEntry(@Valid @RequestBody Entry entry) {
+        return entryService.updateEntry(entry);
+    }
+
+    // This endpoint deletes entries based on their id
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEntry(@PathVariable long id) {
+        entryService.deleteEntry(id);
     }
 }
